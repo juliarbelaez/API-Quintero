@@ -2,16 +2,26 @@
   Por favor llene los datos necesarios para inscribir al estudiante al curso
   requerido:
 </p>
+<!-- Botón agregar estudiante-->
 
 <button (click)="abrirDialogoFormulario()" mat-raised-button color="accent">
   <mat-icon>add</mat-icon>
   Agregar alumno
 </button>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-  <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+<!-- Filtro-->
 
+<mat-form-field class="w-full">
+  <mat-label>Buscar</mat-label>
+  <input
+    matInput
+    (keyup)="aplicarFiltros($event)"
+    placeholder="Nombre ejemplo"
+    #input
+  />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <!-- Columna identificación-->
   <ng-container matColumnDef="id">
     <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Identificación</th>

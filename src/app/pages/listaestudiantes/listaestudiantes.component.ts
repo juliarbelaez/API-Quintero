@@ -25,7 +25,7 @@ export class ListaestudiantesComponent {
       apellido: 'Quintero',
       curso: 'Inglés C1',
       email: 'juliana@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2022-04-20'),
     },
     {
       id: 1039453161,
@@ -33,7 +33,7 @@ export class ListaestudiantesComponent {
       apellido: 'Calderón',
       curso: 'Inglés B2',
       email: 'alejandro@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2021-01-20'),
     },
     {
       id: 1040887368,
@@ -41,7 +41,7 @@ export class ListaestudiantesComponent {
       apellido: 'Calderón',
       curso: 'Inglés A1',
       email: 'gabriel@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2019-08-13'),
     },
     {
       id: 43467507,
@@ -49,7 +49,7 @@ export class ListaestudiantesComponent {
       apellido: 'Martínez',
       curso: 'Inglés A1',
       email: 'alejandra@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2015-12-07'),
     },
     {
       id: 98736462,
@@ -57,7 +57,7 @@ export class ListaestudiantesComponent {
       apellido: 'Zapata',
       curso: 'Inglés A2',
       email: 'claudia@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2016-05-07'),
     },
     {
       id: 7654397,
@@ -65,7 +65,7 @@ export class ListaestudiantesComponent {
       apellido: 'García',
       curso: 'Francés A1',
       email: 'emiliana@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2023-01-07'),
     },
     {
       id: 1035628744,
@@ -73,63 +73,63 @@ export class ListaestudiantesComponent {
       apellido: 'Valdez',
       curso: 'Inglés B2',
       email: 'juan@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2018-03-21'),
     },
     {
       id: 1036402631,
-      nombre: 'Juliana',
+      nombre: 'Andrés',
       apellido: 'Quintero',
       curso: 'Inglés C1',
-      email: 'juliana@gmail.com',
-      fecharegistro: new Date(),
+      email: 'andres@gmail.com',
+      fecharegistro: new Date('2018-03-21'),
     },
     {
       id: 1039453161,
-      nombre: 'Alejandro',
-      apellido: 'Calderón',
+      nombre: 'Andrea',
+      apellido: 'Zapata',
       curso: 'Inglés B2',
-      email: 'alejandro@gmail.com',
-      fecharegistro: new Date(),
+      email: 'andrea@gmail.com',
+      fecharegistro: new Date('2022-04-21'),
     },
     {
       id: 1040887368,
-      nombre: 'Gabriel',
-      apellido: 'Calderón',
-      curso: 'Inglés A1',
-      email: 'gabriel@gmail.com',
-      fecharegistro: new Date(),
+      nombre: 'Samantha',
+      apellido: 'Ramirez',
+      curso: 'Inglés A2',
+      email: 'samanthal@gmail.com',
+      fecharegistro: new Date('2021-06-20'),
     },
     {
       id: 43467507,
-      nombre: 'Alejandra',
+      nombre: 'Kim',
       apellido: 'Martínez',
-      curso: 'Inglés A1',
-      email: 'alejandra@gmail.com',
-      fecharegistro: new Date(),
+      curso: 'Inglés B1',
+      email: 'kim@gmail.com',
+      fecharegistro: new Date('2020-03-20'),
     },
     {
       id: 98736462,
       nombre: 'Claudia',
-      apellido: 'Zapata',
+      apellido: 'Garcia',
       curso: 'Inglés A2',
       email: 'claudia@gmail.com',
-      fecharegistro: new Date(),
+      fecharegistro: new Date('2023-03-20'),
     },
     {
       id: 7654397,
-      nombre: 'Emiliana',
-      apellido: 'García',
+      nombre: 'Esteban',
+      apellido: 'Arbeláez',
       curso: 'Francés A1',
-      email: 'emiliana@gmail.com',
-      fecharegistro: new Date(),
+      email: 'esteban@gmail.com',
+      fecharegistro: new Date('2021-04-11'),
     },
     {
       id: 1035628744,
-      nombre: 'Juan',
+      nombre: 'Jorge',
       apellido: 'Valdez',
       curso: 'Inglés B2',
-      email: 'juan@gmail.com',
-      fecharegistro: new Date(),
+      email: 'jorge@gmail.com',
+      fecharegistro: new Date('2018-05-11'),
     },
   ];
 
@@ -143,6 +143,11 @@ export class ListaestudiantesComponent {
     'fecharegistro',
     'eliminar',
   ];
+
+  aplicarFiltros(ev: Event): void {
+    const inputValue = (ev.target as HTMLInputElement)?.value;
+    this.dataSource.filter = inputValue?.trim()?.toLowerCase();
+  }
 
   constructor(private matDialog: MatDialog) {}
 
