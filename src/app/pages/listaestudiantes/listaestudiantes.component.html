@@ -1,0 +1,53 @@
+<button (click)="abrirDialogoFormulario()" mat-raised-button color="accent">
+  <mat-icon>add</mat-icon>
+  Agregar alumno
+</button>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input
+    matInput
+    (keyup)="aplicarFiltros($event)"
+    placeholder="Buscar"
+    #input
+  />
+</mat-form-field>
+
+<table mat-table [dataSource]="estudiantes" class="mat-elevation-z8 demo-table">
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Columna identificación-->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Identificación</th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.id }}</td>
+  </ng-container>
+
+  <!-- Columna nombre-->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.nombre }}</td>
+  </ng-container>
+
+  <!-- Columna apellido -->
+  <ng-container matColumnDef="apellido">
+    <th mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.apellido }}</td>
+  </ng-container>
+
+  <!-- Columna curso--->
+  <ng-container matColumnDef="curso">
+    <th mat-header-cell *matHeaderCellDef>Curso</th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.curso }}</td>
+  </ng-container>
+  <!-- Columna fecha de registro- -->
+  <ng-container matColumnDef="fecharegistro">
+    <th mat-header-cell *matHeaderCellDef>Fecha de registro</th>
+    <td mat-cell *matCellDef="let usuario">
+      {{ usuario.fecharegistro | date }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

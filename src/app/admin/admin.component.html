@@ -1,0 +1,87 @@
+<p>
+  <mat-toolbar color="primary">
+    <button
+      (click)="drawer.toggle()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Centro de idiomas</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Menú principal</p>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Matricular estudiantes
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Inglés A1
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Inglés A2
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Inglés B1
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Inglés C1
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Francés A1
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Francés A2
+      </button>
+    </ul>
+    <ul>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="primary"
+      >
+        Francés B1
+      </button>
+    </ul>
+    <ul>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Francés B2
+      </button>
+    </ul>
+  </mat-drawer>
+
+  <main class="main">
+    <div class="parrafoPrincipal"></div>
+    <app-listaestudiantes></app-listaestudiantes>
+  </main>
+</mat-drawer-container>
