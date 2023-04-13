@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogoformularioModule } from './dialogoformulario/dialogoformulario.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShareModule } from 'src/app/share/share.module';
+import { PipesModule } from '../../share/pipes/pipes.module';
+import { DirectivesModule } from '../../share/directives/directives.module';
 
 @NgModule({
   declarations: [ListaestudiantesComponent],
@@ -22,6 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     DialogoformularioModule,
     ReactiveFormsModule,
+    ShareModule,
+    PipesModule,
+    DirectivesModule,
   ],
   exports: [ListaestudiantesComponent],
 })

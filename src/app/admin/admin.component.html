@@ -10,57 +10,62 @@
     </button>
     <span>Centro de idiomas</span>
     <span class="example-spacer"></span>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
   </mat-toolbar>
 </p>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <p>Menú principal</p>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Matricular estudiantes
-      </button>
-    </ul>
-    <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Inglés A1
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Inglés A2
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Inglés B1
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Inglés C1
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Francés A1
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Francés A2
       </button>
     </ul>
@@ -68,20 +73,23 @@
       <button
         (click)="showFiller = !showFiller"
         mat-raised-button
-        color="primary"
+        color="accent"
       >
         Francés B1
       </button>
     </ul>
     <ul>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
+      <button
+        (click)="showFiller = !showFiller"
+        mat-raised-button
+        color="accent"
+      >
         Francés B2
       </button>
     </ul>
   </mat-drawer>
 
   <main class="main">
-    <div class="parrafoPrincipal"></div>
     <app-listaestudiantes></app-listaestudiantes>
   </main>
 </mat-drawer-container>
