@@ -1,24 +1,12 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogoformularioComponent } from './dialogoformulario/dialogoformulario.component';
+import { Injectable } from '@angular/core';
+import { Subject, Observable, BehaviorSubject, map } from 'rxjs';
+import { Estudiante } from '../listaestudiantes.component';
 
-export interface Estudiante {
-  id: number;
-  nombre: string;
-  apellido: string;
-  curso: string;
-  email: string;
-  fecharegistro: Date;
-}
-
-@Component({
-  selector: 'app-listaestudiantes',
-  templateUrl: './listaestudiantes.component.html',
-  styleUrls: ['./listaestudiantes.component.scss'],
+@Injectable({
+  providedIn: 'root',
 })
-export class ListaestudiantesComponent {
-  estudiantes: Estudiante[] = [
+export class EstudianteService {
+  private estudiantes$ = new BehaviorSubject<Estudiante[]>([
     {
       id: 1036402631,
       nombre: 'Juliana',
@@ -131,40 +119,20 @@ export class ListaestudiantesComponent {
       email: 'jorge@gmail.com',
       fecharegistro: new Date('2018-05-11'),
     },
-  ];
+  ]);
 
-  dataSource = new MatTableDataSource(this.estudiantes);
+  constructor() {}
 
-  displayedColumns: string[] = [
-    'id',
-    'nombreCompleto',
-    'curso',
-    'email',
-    'fecharegistro',
-    'eliminar',
-  ];
-
-  aplicarFiltros(ev: Event): void {
-    const inputValue = (ev.target as HTMLInputElement)?.value;
-    this.dataSource.filter = inputValue?.trim()?.toLowerCase();
+  obtenerEstudiantes(): Observable<Estudiante[]> {
+    return this.estudiantes$.asObservable();
   }
-
-  constructor(private matDialog: MatDialog) {}
-
-  abrirDialogoFormulario(): void {
-    const dialog = this.matDialog.open(DialogoformularioComponent);
-    dialog.afterClosed().subscribe((valor) => {
-      console.log(valor);
-      if (valor) {
-        this.dataSource.data = [...this.dataSource.data, { ...valor }];
-      }
-    });
-  }
-  eliminarEstudiante(estudiante: Estudiante): void {
-    const index = this.dataSource.data.indexOf(estudiante);
-    if (index !== -1) {
-      this.dataSource.data.splice(index, 1);
-      this.dataSource.data = [...this.dataSource.data];
-    }
+  obtenerEstudiantesporId(id: number): Observable<Estudiante | undefined> {
+    return this.estudiantes$
+      .asObservable()
+      .pipe(
+        map((estudiantes) =>
+          estudiantes.find((estudiante) => estudiante.id === id)
+        )
+      );
   }
 }

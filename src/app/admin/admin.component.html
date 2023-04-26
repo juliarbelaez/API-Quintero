@@ -14,81 +14,16 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <p>Menú principal</p>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Inglés A1
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Inglés A2
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Inglés B1
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Inglés C1
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Francés A1
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Francés A2
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Francés B1
-      </button>
-    </ul>
-    <ul>
-      <button
-        (click)="showFiller = !showFiller"
-        mat-raised-button
-        color="accent"
-      >
-        Francés B2
-      </button>
-    </ul>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="link.path" *ngFor="let link of links">
+        <mat-icon>{{ link.icon }}</mat-icon>
+        {{ link.title }}
+      </a>
+      <a (click)="logOut()" mat-list-item
+        ><mat-icon>logout</mat-icon> Cerrar sesión
+      </a>
+    </mat-nav-list>
   </mat-drawer>
 
-  <main class="main">
-    <app-listaestudiantes></app-listaestudiantes>
-  </main>
+  <main class="main"><router-outlet></router-outlet></main>
 </mat-drawer-container>

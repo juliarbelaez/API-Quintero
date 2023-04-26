@@ -5,11 +5,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ToolbarModule } from '../toolbar/toolbar.module';
-import { ListaestudiantesModule } from '../pages/listaestudiantes/listaestudiantes.module';
+import { ListaestudiantesModule } from './pages/listaestudiantes/listaestudiantes.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
+import { RouterModule } from '@angular/router';
+import { CursosModule } from './pages/cursos/cursos.module';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AdminComponent],
@@ -19,11 +21,13 @@ import { MatDividerModule } from '@angular/material/divider';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    ToolbarModule,
     MatTableModule,
     ListaestudiantesModule,
     MatFormFieldModule,
     MatDividerModule,
+    RouterModule,
+    CursosModule,
+    MatListModule,
   ],
   exports: [AdminComponent],
 })

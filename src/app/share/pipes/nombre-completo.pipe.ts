@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Estudiante } from 'src/app/pages/listaestudiantes/listaestudiantes.component';
-
+import { Estudiante } from 'src/app/admin/pages/listaestudiantes/listaestudiantes.component';
 @Pipe({
   name: 'nombreCompleto',
 })
