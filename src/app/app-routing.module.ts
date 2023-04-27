@@ -7,12 +7,18 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { EstudianteDetalleComponent } from './admin/pages/listaestudiantes/pages/estudiante-detalle/estudiante-detalle.component';
 import { CursosDetalleComponent } from './admin/pages/cursos/components/cursos-detalle/cursos-detalle.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { InscripcionesComponent } from './admin/pages/inscripciones/inscripciones/inscripciones.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: AdminComponent,
     children: [
+      {
+        path: 'homepage',
+        component: HomepageComponent,
+      },
       {
         path: 'estudiantes',
         component: ListaestudiantesComponent,
@@ -29,6 +35,10 @@ const routes: Routes = [
         path: 'cursos/:id',
         component: CursosDetalleComponent,
       },
+      {
+        path: 'inscripciones',
+        component: InscripcionesComponent,
+      },
     ],
   },
   {
@@ -43,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'dashboard/homepage',
   },
 ];
 

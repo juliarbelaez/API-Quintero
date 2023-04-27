@@ -1,5 +1,13 @@
 body {
-  background: #eee;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: rgb(51, 29, 60);
+  background: linear-gradient(
+    90deg,
+    rgba(51, 29, 60, 0.9107843821122199) 64%,
+    rgba(123, 31, 161, 0.725910432532388) 98%
+  );
+  min-height: 100vh;
 }
 
 .card {

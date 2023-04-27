@@ -14,4 +14,7 @@ export class AdminComponent {
   logOut(): void {
     this.router.navigate(['auth', 'login']);
   }
+  redirectToHome() {
+    this.router.navigate(['/dashboard', 'homepage']);
+  }
 }

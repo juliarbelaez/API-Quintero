@@ -31,8 +31,9 @@ export class ListaestudiantesComponent {
     'email',
     'fecharegistro',
     'detail',
-    'eliminar',
     'editar',
+
+    'eliminar',
   ];
 
   aplicarFiltros(ev: Event): void {
