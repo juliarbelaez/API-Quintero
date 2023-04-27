@@ -1,5 +1,5 @@
-import { MatDialogRef } from '@angular/material/dialog';
-import { Component } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -34,7 +34,19 @@ export class DialogoformularioComponent {
     fecharegistro: this.fecharegistro,
   });
 
-  constructor(private dialogRef: MatDialogRef<DialogoformularioComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<DialogoformularioComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: any
+  ) {
+    if (data) {
+      this.idControl.setValue(data.editedEstudiante.id);
+      this.nombreControl.setValue(data.editedEstudiante.nombre);
+      this.apellidoControl.setValue(data.editedEstudiante.apellido);
+      this.cursoControl.setValue(data.editedEstudiante.curso);
+      this.emailControl.setValue(data.editedEstudiante.email);
+      this.fecharegistro.setValue(data.editedEstudiante.fecharegistro);
+    }
+  }
   guardar(): void {
     if (this.estudiantesForm.valid) {
       this.dialogRef.close(this.estudiantesForm.value);

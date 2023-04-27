@@ -1,10 +1,27 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{ curso?.nombre }}</mat-card-title>
-    <mat-card-subtitle>{{ curso?.id }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>{{ curso?.fechaInicio | date }}</p>
-    <p>{{ curso?.fechaFin | date }}</p>
-  </mat-card-content>
-</mat-card>
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="card p-3 py-4">
+        <div class="text-center mt-3">
+          <span>Nombre</span>
+          <h1 class="mt-2 mb-0">
+            {{ curso?.nombre }}
+          </h1>
+
+          <div class="px-4 mt-1">
+            <p class="fonts">Id curso: {{ curso?.id }}</p>
+            <h5 class="fonts">
+              Fecha inicio curso: {{ curso?.fechaInicio | date }}
+            </h5>
+            <h5 class="fonts">Fecha fin curso: {{ curso?.fechaFin | date }}</h5>
+          </div>
+
+          <div class="buttons">
+            <button class="btn btn-outline-primary px-4">Editar</button>
+            <button class="btn btn-primary px-4 ms-3">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

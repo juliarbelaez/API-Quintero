@@ -5,6 +5,7 @@ import { DialogoformularioComponent } from './dialogoformulario/dialogoformulari
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EstudianteService } from './services/estudiante.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Estudiante {
   id: number;
@@ -43,7 +44,8 @@ export class ListaestudiantesComponent {
     private matDialog: MatDialog,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private estudianteService: EstudianteService
+    private estudianteService: EstudianteService,
+    private snackBar: MatSnackBar
   ) {
     this.estudianteService.obtenerEstudiantes().subscribe((estudiantes) => {
       this.dataSource.data = estudiantes;
@@ -66,11 +68,21 @@ export class ListaestudiantesComponent {
     });
   }
   eliminarEstudiante(estudiante: Estudiante): void {
-    const index = this.dataSource.data.indexOf(estudiante);
-    if (index !== -1) {
-      this.dataSource.data.splice(index, 1);
-      this.dataSource.data = [...this.dataSource.data];
-    }
+    const snackBarRef = this.snackBar.open(
+      '¿Estás seguro de eliminar al estudiante?',
+      'Eliminar',
+      {
+        duration: 5000,
+        panelClass: 'snackbar-danger',
+      }
+    );
+    snackBarRef.onAction().subscribe(() => {
+      const index = this.dataSource.data.indexOf(estudiante);
+      if (index !== -1) {
+        this.dataSource.data.splice(index, 1);
+        this.dataSource.data = [...this.dataSource.data];
+      }
+    });
   }
   editarEstudiante(editedEstudiante: Estudiante): void {
     const dialog = this.matDialog.open(DialogoformularioComponent, {
