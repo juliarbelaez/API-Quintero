@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from './models/index';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoformularioComponent } from './components/dialogoformulario/dialogoformulario.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cursos',
@@ -14,7 +16,10 @@ export class CursosComponent {
   dataSource = new MatTableDataSource();
   constructor(
     private cursosService: CursosService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -25,14 +30,52 @@ export class CursosComponent {
     });
   }
 
-  abrirDialogoFormulario(): void {
-    this.matDialog.open(DialogoformularioComponent);
+  aplicarFiltros(ev: Event): void {
+    const inputValue = (ev.target as HTMLInputElement)?.value;
+    this.dataSource.filter = inputValue?.trim()?.toLowerCase();
   }
-  aplicarFiltros(ev: Event): void {}
-  irAlDetalle(cursoId: number): void {}
-  eliminarCurso(curso: Curso): void {}
-  editarCurso(curso: Curso): void {}
 
+  abrirDialogoFormulario(): void {
+    const dialog = this.matDialog.open(DialogoformularioComponent);
+    dialog.afterClosed().subscribe((formValue) => {
+      if (formValue) {
+        this.cursosService.crearCursos(formValue);
+      }
+    });
+  }
+
+  editarCurso(curso: Curso): void {
+    const dialog = this.matDialog.open(DialogoformularioComponent, {
+      data: {
+        curso,
+      },
+    });
+    dialog.afterClosed().subscribe((formValue) => {
+      if (formValue) {
+        this.cursosService.editarCurso(curso.id, formValue);
+      }
+    });
+  }
+
+  irAlDetalle(cursoId: number): void {
+    this.router.navigate([cursoId], {
+      relativeTo: this.activatedRoute,
+    });
+  }
+
+  eliminarCurso(curso: Curso): void {
+    const snackBarRef = this.snackBar.open(
+      '¿Estás seguro de eliminar el curso?',
+      'Eliminar',
+      {
+        duration: 5000,
+        panelClass: 'snackbar-danger',
+      }
+    );
+    snackBarRef.onAction().subscribe(() => {
+      this.cursosService.eliminarCurso(curso.id);
+    });
+  }
   displayedColumns: string[] = [
     'id',
     'nombreCurso',

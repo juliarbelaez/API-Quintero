@@ -12,7 +12,7 @@
           placeholder="Id number"
         />
         <mat-error *ngFor="let error of idControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>
@@ -22,7 +22,7 @@
         <input [formControl]="nombreControl" matInput placeholder="Nombre" />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-error *ngFor="let error of nombreControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>
@@ -36,7 +36,7 @@
         />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-error *ngFor="let error of apellidoControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>
@@ -55,7 +55,7 @@
           <mat-option value="Francés B2">Francés B2</mat-option>
         </mat-select>
         <mat-error *ngFor="let error of cursoControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>
@@ -65,7 +65,7 @@
         <input [formControl]="emailControl" matInput placeholder="Email" />
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-error *ngFor="let error of emailControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>
@@ -84,7 +84,7 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngFor="let error of cursoControl.errors | keyvalue">{{
-          error
+          error | controlError
         }}</mat-error>
       </mat-form-field>
     </p>

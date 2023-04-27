@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { PipesModule } from 'src/app/share/pipes/pipes.module';
 
 @NgModule({
   declarations: [DialogoformularioComponent],
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    PipesModule,
   ],
   exports: [DialogoformularioComponent],
 })

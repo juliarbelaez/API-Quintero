@@ -15,9 +15,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CursosDetalleComponent } from './components/cursos-detalle/cursos-detalle.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [CursosComponent, DialogoformularioComponent],
+  declarations: [
+    CursosComponent,
+    DialogoformularioComponent,
+    CursosDetalleComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -33,6 +40,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     FormsModule,
+    MatSnackBarModule,
+    MatCardModule,
   ],
   exports: [CursosComponent],
 })

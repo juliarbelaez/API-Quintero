@@ -6,6 +6,7 @@ import { CursosComponent } from './admin/pages/cursos/cursos.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { EstudianteDetalleComponent } from './admin/pages/listaestudiantes/pages/estudiante-detalle/estudiante-detalle.component';
+import { CursosDetalleComponent } from './admin/pages/cursos/components/cursos-detalle/cursos-detalle.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'cursos',
         component: CursosComponent,
+      },
+      {
+        path: 'cursos/:id',
+        component: CursosDetalleComponent,
       },
     ],
   },
