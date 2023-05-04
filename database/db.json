@@ -1,0 +1,57 @@
+{
+  "usuarios": [
+    {
+      "id": 1036402631,
+      "nombre": "Juliana",
+      "apellido": "Quintero",
+      "email": "juli@mail.com",
+      "password": "12345678",
+      "token": "QFKHNFertyuifghnjmfdskSkj12dk",
+      "role": "admin"
+    },
+    {
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "email": "juan@mail.com",
+      "password": "12345678",
+      "token": "thowlhasYGHGjldhkldhnkefd",
+      "role": "user",
+      "id": 1036402632
+    },
+    {
+      "nombre": "Alejandro",
+      "apellido": "García",
+      "email": "alejandro@mail.com",
+      "password": "12345678",
+      "role": "user",
+      "id": 1036402633
+    },
+    {
+      "nombre": "Gabriel",
+      "apellido": "García",
+      "email": "gabriel@mail.com",
+      "password": "12345678",
+      "token": "qazKLSDMEknkfjn2372y48u",
+      "role": "user",
+      "id": 1036402634
+    },
+    {
+      "nombre": "Jose",
+      "apellido": "Jaramillo",
+      "email": "jose@mail.com",
+      "password": "12345678",
+      "token": "jhggvfcdoljkrenLKSHRDN475",
+      "role": "user",
+      "id": 1036402635
+    },
+    {
+      "nombre": "Claudia",
+      "apellido": "García",
+      "email": "claudia@mail.com",
+      "password": "12345678",
+      "token": "khfsna637y4uhrjnBHADKNRIkjhn",
+      "role": "user",
+      "id": 1036402636
+    }
+  ]
+}

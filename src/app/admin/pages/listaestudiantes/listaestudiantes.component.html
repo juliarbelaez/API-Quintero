@@ -20,6 +20,9 @@
     #input
   />
 </mat-form-field>
+<div *ngIf="loading" class="spinner-container">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <!-- Columna identificación-->

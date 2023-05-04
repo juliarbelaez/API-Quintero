@@ -14,6 +14,8 @@ export interface Estudiante {
   curso: string;
   email: string;
   fecharegistro: Date;
+  role: string;
+  token: string;
 }
 
 @Component({
@@ -23,6 +25,7 @@ export interface Estudiante {
 })
 export class ListaestudiantesComponent {
   dataSource = new MatTableDataSource<Estudiante>();
+  loading = true;
 
   displayedColumns: string[] = [
     'id',
@@ -32,7 +35,6 @@ export class ListaestudiantesComponent {
     'fecharegistro',
     'detail',
     'editar',
-
     'eliminar',
   ];
 
@@ -48,9 +50,12 @@ export class ListaestudiantesComponent {
     private estudianteService: EstudianteService,
     private snackBar: MatSnackBar
   ) {
-    this.estudianteService.obtenerEstudiantes().subscribe((estudiantes) => {
-      this.dataSource.data = estudiantes;
-    });
+    setTimeout(() => {
+      this.estudianteService.obtenerEstudiantes().subscribe((estudiantes) => {
+        this.dataSource.data = estudiantes;
+        this.loading = false;
+      });
+    }, 1000);
   }
 
   irAlDetalle(estudiantesId: number): void {
@@ -60,6 +65,9 @@ export class ListaestudiantesComponent {
   }
 
   abrirDialogoFormulario(): void {
+    if (this.loading) {
+      return;
+    }
     const dialog = this.matDialog.open(DialogoformularioComponent);
     dialog.afterClosed().subscribe((valor) => {
       console.log(valor);
@@ -68,7 +76,11 @@ export class ListaestudiantesComponent {
       }
     });
   }
+
   eliminarEstudiante(estudiante: Estudiante): void {
+    if (this.loading) {
+      return;
+    }
     const snackBarRef = this.snackBar.open(
       '¿Estás seguro de eliminar al estudiante?',
       'Eliminar',

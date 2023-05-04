@@ -14,6 +14,8 @@ import { DirectivesModule } from '../../../share/directives/directives.module';
 import { DialogoformularioModule } from './dialogoformulario/dialogoformulario.module';
 import { EstudianteDetalleComponent } from './pages/estudiante-detalle/estudiante-detalle.component';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [ListaestudiantesComponent, EstudianteDetalleComponent],
@@ -31,6 +33,17 @@ import { MatCardModule } from '@angular/material/card';
     DirectivesModule,
     DialogoformularioModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ListaestudiantesComponent,
+      },
+      {
+        path: ':id',
+        component: EstudianteDetalleComponent,
+      },
+    ]),
   ],
   exports: [ListaestudiantesComponent],
 })

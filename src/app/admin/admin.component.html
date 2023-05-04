@@ -9,6 +9,8 @@
   </button>
   <span>Speak Up!</span>
   <span class="example-spacer"></span>
+  <p>Hola {{ (authUser$ | async)?.nombre }}</p>
+
   <a (click)="redirectToHome()">
     <mat-icon>home</mat-icon>
   </a>
@@ -16,8 +18,18 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>¿Qué quieres hacer hoy?</p>
+    <p>Bienvenido</p>
     <mat-nav-list>
+      <li>
+        <img
+          src="../../assets/userSideBar.png"
+          alt="Imagen user"
+          width="80"
+          height="80"
+        />
+      </li>
+      <li>{{ (authUser$ | async)?.nombre }}</li>
+      <li>{{ (authUser$ | async)?.email }}</li>
       <a mat-list-item [routerLink]="link.path" *ngFor="let link of links">
         <mat-icon>{{ link.icon }}</mat-icon>
         {{ link.title }}

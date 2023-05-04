@@ -14,6 +14,8 @@ export class EstudianteService {
       curso: 'Inglés C1',
       email: 'juliana@gmail.com',
       fecharegistro: new Date('2022-04-20'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1039453161,
@@ -22,6 +24,8 @@ export class EstudianteService {
       curso: 'Inglés B2',
       email: 'alejandro@gmail.com',
       fecharegistro: new Date('2021-01-20'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1040887368,
@@ -30,6 +34,8 @@ export class EstudianteService {
       curso: 'Inglés A1',
       email: 'gabriel@gmail.com',
       fecharegistro: new Date('2019-08-13'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 43467507,
@@ -38,6 +44,8 @@ export class EstudianteService {
       curso: 'Inglés A1',
       email: 'alejandra@gmail.com',
       fecharegistro: new Date('2015-12-07'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 98736462,
@@ -46,6 +54,8 @@ export class EstudianteService {
       curso: 'Inglés A2',
       email: 'claudia@gmail.com',
       fecharegistro: new Date('2016-05-07'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 7654397,
@@ -54,6 +64,8 @@ export class EstudianteService {
       curso: 'Francés A1',
       email: 'emiliana@gmail.com',
       fecharegistro: new Date('2023-01-07'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1035628744,
@@ -62,6 +74,8 @@ export class EstudianteService {
       curso: 'Inglés B2',
       email: 'juan@gmail.com',
       fecharegistro: new Date('2018-03-21'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1036402631,
@@ -70,6 +84,8 @@ export class EstudianteService {
       curso: 'Inglés C1',
       email: 'andres@gmail.com',
       fecharegistro: new Date('2018-03-21'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1039453161,
@@ -78,6 +94,8 @@ export class EstudianteService {
       curso: 'Inglés B2',
       email: 'andrea@gmail.com',
       fecharegistro: new Date('2022-04-21'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1040887368,
@@ -86,6 +104,8 @@ export class EstudianteService {
       curso: 'Inglés A2',
       email: 'samanthal@gmail.com',
       fecharegistro: new Date('2021-06-20'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 43467507,
@@ -94,6 +114,8 @@ export class EstudianteService {
       curso: 'Inglés B1',
       email: 'kim@gmail.com',
       fecharegistro: new Date('2020-03-20'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 98736462,
@@ -102,6 +124,8 @@ export class EstudianteService {
       curso: 'Inglés A2',
       email: 'claudia@gmail.com',
       fecharegistro: new Date('2023-03-20'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 7654397,
@@ -110,6 +134,8 @@ export class EstudianteService {
       curso: 'Francés A1',
       email: 'esteban@gmail.com',
       fecharegistro: new Date('2021-04-11'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
     {
       id: 1035628744,
@@ -118,6 +144,8 @@ export class EstudianteService {
       curso: 'Inglés B2',
       email: 'jorge@gmail.com',
       fecharegistro: new Date('2018-05-11'),
+      role: 'student',
+      token: 'QFKHNFertyuifghnjmfdskSkj12dk',
     },
   ]);
 

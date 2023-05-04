@@ -7,6 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { EstudianteDetalleComponent } from './pages/listaestudiantes/pages/estudiante-detalle/estudiante-detalle.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, EstudianteDetalleComponent],
@@ -17,6 +18,7 @@ import { EstudianteDetalleComponent } from './pages/listaestudiantes/pages/estud
     MatDividerModule,
     AppRoutingModule,
     AuthModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

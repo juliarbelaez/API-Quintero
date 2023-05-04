@@ -1,55 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
-import { ListaestudiantesComponent } from './admin/pages/listaestudiantes/listaestudiantes.component';
-import { CursosComponent } from './admin/pages/cursos/cursos.component';
 import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/pages/login/login.component';
-import { EstudianteDetalleComponent } from './admin/pages/listaestudiantes/pages/estudiante-detalle/estudiante-detalle.component';
-import { CursosDetalleComponent } from './admin/pages/cursos/components/cursos-detalle/cursos-detalle.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { InscripcionesComponent } from './admin/pages/inscripciones/inscripciones/inscripciones.component';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { LoginGuard } from './auth/guards/login.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [AuthGuard],
     component: AdminComponent,
-    children: [
-      {
-        path: 'homepage',
-        component: HomepageComponent,
-      },
-      {
-        path: 'estudiantes',
-        component: ListaestudiantesComponent,
-      },
-      {
-        path: 'estudiantes/:id',
-        component: EstudianteDetalleComponent,
-      },
-      {
-        path: 'cursos',
-        component: CursosComponent,
-      },
-      {
-        path: 'cursos/:id',
-        component: CursosDetalleComponent,
-      },
-      {
-        path: 'inscripciones',
-        component: InscripcionesComponent,
-      },
-    ],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'auth',
+    canActivate: [LoginGuard],
     component: AuthComponent,
-    children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-    ],
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '**',

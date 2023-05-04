@@ -17,11 +17,42 @@
           >
         </div>
         <div class="contact">
-          <form action="">
-            <h3>INICIAR SESIÓN</h3>
-            <input type="text" placeholder="NOMBRE DE USUARIO" />
-            <input type="text" placeholder="CONTRASEÑA" />
-            <button class="submit">LET'S GO</button>
+          <h3>INICIAR SESIÓN</h3>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Correo electrónico"
+                  formControlName="email"
+                />
+                <mat-error *ngIf="emailControl.hasError('required')"
+                  >El correo electrónico es requerido.</mat-error
+                >
+                <mat-error *ngIf="emailControl.hasError('email')"
+                  >El correo electrónico no es válido.</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="field">
+              <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input
+                  [formControl]="passwordControl"
+                  type="password"
+                  matInput
+                />
+                <mat-error
+                  *ngFor="let error of emailControl.errors | keyvalue"
+                  >{{ error | controlError }}</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="flex justify-content-end">
+              <button type="submit" color="primary" mat-flat-button>
+                Ingresar
+              </button>
+            </div>
           </form>
         </div>
       </div>
